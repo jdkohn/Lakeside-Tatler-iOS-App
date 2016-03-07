@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C46208D1C8E04AC0064EDDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */; };
+		2C46208F1C8E04AC0064EDDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46208E1C8E04AC0064EDDA /* ViewController.swift */; };
+		2C4620921C8E04AC0064EDDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620901C8E04AC0064EDDA /* Main.storyboard */; };
+		2C4620951C8E04AC0064EDDA /* LakesideTatler.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620931C8E04AC0064EDDA /* LakesideTatler.xcdatamodeld */; };
+		2C4620971C8E04AC0064EDDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620961C8E04AC0064EDDA /* Assets.xcassets */; };
+		2C46209A1C8E04AC0064EDDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620981C8E04AC0064EDDA /* LaunchScreen.storyboard */; };
+		2C4620A51C8E04AC0064EDDA /* LakesideTatlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620A41C8E04AC0064EDDA /* LakesideTatlerTests.swift */; };
+		2C4620B01C8E04AC0064EDDA /* LakesideTatlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C4620A11C8E04AC0064EDDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C4620811C8E04AB0064EDDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C4620881C8E04AC0064EDDA;
+			remoteInfo = LakesideTatler;
+		};
+		2C4620AC1C8E04AC0064EDDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C4620811C8E04AB0064EDDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C4620881C8E04AC0064EDDA;
+			remoteInfo = LakesideTatler;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C4620891C8E04AC0064EDDA /* LakesideTatler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LakesideTatler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C46208E1C8E04AC0064EDDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C4620911C8E04AC0064EDDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C4620941C8E04AC0064EDDA /* LakesideTatler.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LakesideTatler.xcdatamodel; sourceTree = "<group>"; };
+		2C4620961C8E04AC0064EDDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C4620991C8E04AC0064EDDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C46209B1C8E04AC0064EDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C4620A01C8E04AC0064EDDA /* LakesideTatlerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LakesideTatlerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C4620A41C8E04AC0064EDDA /* LakesideTatlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesideTatlerTests.swift; sourceTree = "<group>"; };
+		2C4620A61C8E04AC0064EDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C4620AB1C8E04AC0064EDDA /* LakesideTatlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LakesideTatlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesideTatlerUITests.swift; sourceTree = "<group>"; };
+		2C4620B11C8E04AC0064EDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C4620861C8E04AC0064EDDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C46209D1C8E04AC0064EDDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C4620A81C8E04AC0064EDDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C4620801C8E04AB0064EDDA = {
+			isa = PBXGroup;
+			children = (
+				2C46208B1C8E04AC0064EDDA /* LakesideTatler */,
+				2C4620A31C8E04AC0064EDDA /* LakesideTatlerTests */,
+				2C4620AE1C8E04AC0064EDDA /* LakesideTatlerUITests */,
+				2C46208A1C8E04AC0064EDDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C46208A1C8E04AC0064EDDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C4620891C8E04AC0064EDDA /* LakesideTatler.app */,
+				2C4620A01C8E04AC0064EDDA /* LakesideTatlerTests.xctest */,
+				2C4620AB1C8E04AC0064EDDA /* LakesideTatlerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C46208B1C8E04AC0064EDDA /* LakesideTatler */ = {
+			isa = PBXGroup;
+			children = (
+				2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */,
+				2C46208E1C8E04AC0064EDDA /* ViewController.swift */,
+				2C4620901C8E04AC0064EDDA /* Main.storyboard */,
+				2C4620961C8E04AC0064EDDA /* Assets.xcassets */,
+				2C4620981C8E04AC0064EDDA /* LaunchScreen.storyboard */,
+				2C46209B1C8E04AC0064EDDA /* Info.plist */,
+				2C4620931C8E04AC0064EDDA /* LakesideTatler.xcdatamodeld */,
+			);
+			path = LakesideTatler;
+			sourceTree = "<group>";
+		};
+		2C4620A31C8E04AC0064EDDA /* LakesideTatlerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C4620A41C8E04AC0064EDDA /* LakesideTatlerTests.swift */,
+				2C4620A61C8E04AC0064EDDA /* Info.plist */,
+			);
+			path = LakesideTatlerTests;
+			sourceTree = "<group>";
+		};
+		2C4620AE1C8E04AC0064EDDA /* LakesideTatlerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */,
+				2C4620B11C8E04AC0064EDDA /* Info.plist */,
+			);
+			path = LakesideTatlerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C4620881C8E04AC0064EDDA /* LakesideTatler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C4620B41C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatler" */;
+			buildPhases = (
+				2C4620851C8E04AC0064EDDA /* Sources */,
+				2C4620861C8E04AC0064EDDA /* Frameworks */,
+				2C4620871C8E04AC0064EDDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LakesideTatler;
+			productName = LakesideTatler;
+			productReference = 2C4620891C8E04AC0064EDDA /* LakesideTatler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C46209F1C8E04AC0064EDDA /* LakesideTatlerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C4620B71C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatlerTests" */;
+			buildPhases = (
+				2C46209C1C8E04AC0064EDDA /* Sources */,
+				2C46209D1C8E04AC0064EDDA /* Frameworks */,
+				2C46209E1C8E04AC0064EDDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C4620A21C8E04AC0064EDDA /* PBXTargetDependency */,
+			);
+			name = LakesideTatlerTests;
+			productName = LakesideTatlerTests;
+			productReference = 2C4620A01C8E04AC0064EDDA /* LakesideTatlerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2C4620AA1C8E04AC0064EDDA /* LakesideTatlerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C4620BA1C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatlerUITests" */;
+			buildPhases = (
+				2C4620A71C8E04AC0064EDDA /* Sources */,
+				2C4620A81C8E04AC0064EDDA /* Frameworks */,
+				2C4620A91C8E04AC0064EDDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C4620AD1C8E04AC0064EDDA /* PBXTargetDependency */,
+			);
+			name = LakesideTatlerUITests;
+			productName = LakesideTatlerUITests;
+			productReference = 2C4620AB1C8E04AC0064EDDA /* LakesideTatlerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C4620811C8E04AB0064EDDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Jacob Kohn";
+				TargetAttributes = {
+					2C4620881C8E04AC0064EDDA = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					2C46209F1C8E04AC0064EDDA = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 2C4620881C8E04AC0064EDDA;
+					};
+					2C4620AA1C8E04AC0064EDDA = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 2C4620881C8E04AC0064EDDA;
+					};
+				};
+			};
+			buildConfigurationList = 2C4620841C8E04AB0064EDDA /* Build configuration list for PBXProject "LakesideTatler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C4620801C8E04AB0064EDDA;
+			productRefGroup = 2C46208A1C8E04AC0064EDDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C4620881C8E04AC0064EDDA /* LakesideTatler */,
+				2C46209F1C8E04AC0064EDDA /* LakesideTatlerTests */,
+				2C4620AA1C8E04AC0064EDDA /* LakesideTatlerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C4620871C8E04AC0064EDDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C46209A1C8E04AC0064EDDA /* LaunchScreen.storyboard in Resources */,
+				2C4620971C8E04AC0064EDDA /* Assets.xcassets in Resources */,
+				2C4620921C8E04AC0064EDDA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C46209E1C8E04AC0064EDDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C4620A91C8E04AC0064EDDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C4620851C8E04AC0064EDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C46208F1C8E04AC0064EDDA /* ViewController.swift in Sources */,
+				2C4620951C8E04AC0064EDDA /* LakesideTatler.xcdatamodeld in Sources */,
+				2C46208D1C8E04AC0064EDDA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C46209C1C8E04AC0064EDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C4620A51C8E04AC0064EDDA /* LakesideTatlerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C4620A71C8E04AC0064EDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C4620B01C8E04AC0064EDDA /* LakesideTatlerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C4620A21C8E04AC0064EDDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C4620881C8E04AC0064EDDA /* LakesideTatler */;
+			targetProxy = 2C4620A11C8E04AC0064EDDA /* PBXContainerItemProxy */;
+		};
+		2C4620AD1C8E04AC0064EDDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C4620881C8E04AC0064EDDA /* LakesideTatler */;
+			targetProxy = 2C4620AC1C8E04AC0064EDDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C4620901C8E04AC0064EDDA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C4620911C8E04AC0064EDDA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2C4620981C8E04AC0064EDDA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C4620991C8E04AC0064EDDA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C4620B21C8E04AC0064EDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C4620B31C8E04AC0064EDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C4620B51C8E04AC0064EDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LakesideTatler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C4620B61C8E04AC0064EDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LakesideTatler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2C4620B81C8E04AC0064EDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LakesideTatlerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatlerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LakesideTatler.app/LakesideTatler";
+			};
+			name = Debug;
+		};
+		2C4620B91C8E04AC0064EDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LakesideTatlerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatlerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LakesideTatler.app/LakesideTatler";
+			};
+			name = Release;
+		};
+		2C4620BB1C8E04AC0064EDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LakesideTatlerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatlerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LakesideTatler;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2C4620BC1C8E04AC0064EDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LakesideTatlerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatlerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LakesideTatler;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C4620841C8E04AB0064EDDA /* Build configuration list for PBXProject "LakesideTatler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C4620B21C8E04AC0064EDDA /* Debug */,
+				2C4620B31C8E04AC0064EDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C4620B41C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C4620B51C8E04AC0064EDDA /* Debug */,
+				2C4620B61C8E04AC0064EDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2C4620B71C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatlerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C4620B81C8E04AC0064EDDA /* Debug */,
+				2C4620B91C8E04AC0064EDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2C4620BA1C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatlerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C4620BB1C8E04AC0064EDDA /* Debug */,
+				2C4620BC1C8E04AC0064EDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2C4620931C8E04AC0064EDDA /* LakesideTatler.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C4620941C8E04AC0064EDDA /* LakesideTatler.xcdatamodel */,
+			);
+			currentVersion = 2C4620941C8E04AC0064EDDA /* LakesideTatler.xcdatamodel */;
+			path = LakesideTatler.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C4620811C8E04AB0064EDDA /* Project object */;
+}
