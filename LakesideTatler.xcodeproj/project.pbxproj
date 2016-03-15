@@ -15,6 +15,7 @@
 		2C46209A1C8E04AC0064EDDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620981C8E04AC0064EDDA /* LaunchScreen.storyboard */; };
 		2C4620A51C8E04AC0064EDDA /* LakesideTatlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620A41C8E04AC0064EDDA /* LakesideTatlerTests.swift */; };
 		2C4620B01C8E04AC0064EDDA /* LakesideTatlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */; };
+		2C4620C21C9878480064EDDA /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620C11C9878480064EDDA /* LogInScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2C4620AB1C8E04AC0064EDDA /* LakesideTatlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LakesideTatlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesideTatlerUITests.swift; sourceTree = "<group>"; };
 		2C4620B11C8E04AC0064EDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C4620C11C9878480064EDDA /* LogInScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */,
 				2C46208E1C8E04AC0064EDDA /* ViewController.swift */,
 				2C4620901C8E04AC0064EDDA /* Main.storyboard */,
+				2C4620C11C9878480064EDDA /* LogInScreen.swift */,
 				2C4620961C8E04AC0064EDDA /* Assets.xcassets */,
 				2C4620981C8E04AC0064EDDA /* LaunchScreen.storyboard */,
 				2C46209B1C8E04AC0064EDDA /* Info.plist */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C46208F1C8E04AC0064EDDA /* ViewController.swift in Sources */,
+				2C4620C21C9878480064EDDA /* LogInScreen.swift in Sources */,
 				2C4620951C8E04AC0064EDDA /* LakesideTatler.xcdatamodeld in Sources */,
 				2C46208D1C8E04AC0064EDDA /* AppDelegate.swift in Sources */,
 			);
@@ -488,6 +492,7 @@
 				2C4620B61C8E04AC0064EDDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C4620B71C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatlerTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				2C4620B91C8E04AC0064EDDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C4620BA1C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatlerUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				2C4620BC1C8E04AC0064EDDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
