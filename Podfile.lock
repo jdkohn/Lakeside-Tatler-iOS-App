@@ -1,0 +1,10 @@
+PODS:
+  - wpxmlrpc (0.8.1)
+
+DEPENDENCIES:
+  - wpxmlrpc (~> 0.5)
+
+SPEC CHECKSUMS:
+  wpxmlrpc: bd391dab54e9bdceb5d1de23d161ecf1ba80f0e0
+
+COCOAPODS: 0.39.0

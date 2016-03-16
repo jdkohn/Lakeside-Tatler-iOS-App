@@ -16,6 +16,7 @@
 		2C4620A51C8E04AC0064EDDA /* LakesideTatlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620A41C8E04AC0064EDDA /* LakesideTatlerTests.swift */; };
 		2C4620B01C8E04AC0064EDDA /* LakesideTatlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */; };
 		2C4620C21C9878480064EDDA /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620C11C9878480064EDDA /* LogInScreen.swift */; };
+		502A98C505F96654ECB25DB0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2F3FBE5D8FB64B79D74140 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FDF101B282C511804D89E4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2C4620891C8E04AC0064EDDA /* LakesideTatler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LakesideTatler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C46208E1C8E04AC0064EDDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		2C4620AF1C8E04AC0064EDDA /* LakesideTatlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesideTatlerUITests.swift; sourceTree = "<group>"; };
 		2C4620B11C8E04AC0064EDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C4620C11C9878480064EDDA /* LogInScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
+		4C2F3FBE5D8FB64B79D74140 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67231DFFA9D77282DD19D03D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				502A98C505F96654ECB25DB0 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				2C4620A31C8E04AC0064EDDA /* LakesideTatlerTests */,
 				2C4620AE1C8E04AC0064EDDA /* LakesideTatlerUITests */,
 				2C46208A1C8E04AC0064EDDA /* Products */,
+				33F366209A215B92D165B1A9 /* Pods */,
+				FD3A100D6F25FC165EA65EB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,23 @@
 			path = LakesideTatlerUITests;
 			sourceTree = "<group>";
 		};
+		33F366209A215B92D165B1A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67231DFFA9D77282DD19D03D /* Pods.debug.xcconfig */,
+				0FDF101B282C511804D89E4F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD3A100D6F25FC165EA65EB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C2F3FBE5D8FB64B79D74140 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4620B41C8E04AC0064EDDA /* Build configuration list for PBXNativeTarget "LakesideTatler" */;
 			buildPhases = (
+				1C8CAAF1AF1E6CC7CBA48657 /* Check Pods Manifest.lock */,
 				2C4620851C8E04AC0064EDDA /* Sources */,
 				2C4620861C8E04AC0064EDDA /* Frameworks */,
 				2C4620871C8E04AC0064EDDA /* Resources */,
+				4F48C29688A7B47C83FE2BE9 /* Embed Pods Frameworks */,
+				57178149486B87320CBF5C84 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +283,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C8CAAF1AF1E6CC7CBA48657 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4F48C29688A7B47C83FE2BE9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57178149486B87320CBF5C84 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C4620851C8E04AC0064EDDA /* Sources */ = {
@@ -405,6 +480,7 @@
 		};
 		2C4620B51C8E04AC0064EDDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67231DFFA9D77282DD19D03D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LakesideTatler/Info.plist;
@@ -416,6 +492,7 @@
 		};
 		2C4620B61C8E04AC0064EDDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FDF101B282C511804D89E4F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LakesideTatler/Info.plist;
