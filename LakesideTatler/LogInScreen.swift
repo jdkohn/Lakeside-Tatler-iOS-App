@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class LogInViewController: UIViewController {
     
@@ -15,11 +16,49 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     
+    var articles = [NSDictionary]()
+    var timesLoggedIn = [NSManagedObject]()
+    
+    let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
+    let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
+    let fadedMaroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 0.75)
+    let fadedGold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 0.75)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         logInButton.addTarget(self, action: "logIn:", forControlEvents: .TouchUpInside)
+        
+        self.view.backgroundColor = maroon
+        usernameField.backgroundColor = maroon
+        usernameField.textColor = gold
+        passwordField.backgroundColor = maroon
+        passwordField.textColor = gold
+        logInButton.tintColor = gold
+        usernameField.layer.borderWidth = 1
+        usernameField.layer.borderColor = gold.CGColor
+        passwordField.layer.borderWidth = 1
+        passwordField.layer.borderColor = gold.CGColor
+        
+        usernameField.attributedPlaceholder = NSAttributedString(string:"Username",
+            attributes:[NSForegroundColorAttributeName: fadedGold])
+        passwordField.attributedPlaceholder = NSAttributedString(string:"Password",
+            attributes:[NSForegroundColorAttributeName: fadedGold])
+        
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName:"LogIn")
+        let error: NSError?
+        var fetchedResults = [NSManagedObject]()
+        do {
+            fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        timesLoggedIn = fetchedResults
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,16 +103,42 @@ class LogInViewController: UIViewController {
                 //checks to see if the page post-login contains a 'login error'
                 if((responseString).rangeOfString("<div id=\"login_error\">").location == NSNotFound) {
                     
-                    let alert = UIAlertController(title: "Success!", message: "You have logged in to The Tatler", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) -> Void in
-                        
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    let appDelegate =
+                    UIApplication.sharedApplication().delegate as! AppDelegate
+                    let managedContext = appDelegate.managedObjectContext
                     
-                    self.usernameField.text! = ""
-                    self.passwordField.text! = ""
+                    let entity =  NSEntityDescription.entityForName("LogIn",
+                        inManagedObjectContext:
+                        managedContext)
+                    
+                    
+                    
+                    //creates new password object
+                    let logInObject = NSManagedObject(entity: entity!,
+                        insertIntoManagedObjectContext:managedContext)
+                    logInObject.setValue(Int(NSDate().timeIntervalSince1970), forKey: "time")
+                    
+                    var error: NSError?
+                    do {
+                        try managedContext.save()
+                    } catch var error1 as NSError {
+                        error = error1
+                        print("Could not save \(error), \(error?.userInfo)")
+                    }
+                    
+                    self.timesLoggedIn.insert(logInObject, atIndex: self.timesLoggedIn.count)
+                    
+                    do {
+                        try managedContext.save()
+                    } catch _ {
+                    }
+ 
+                    
+                    
+                    
+                   self.performSegueWithIdentifier("loggedIn", sender: nil)
                 } else {
-                    let alert = UIAlertController(title: "Awww :(", message: "Incorrect Username/Password", preferredStyle: .Alert)
+                    let alert = UIAlertController(title: "Oops!", message: "Incorrect Username/Password", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) -> Void in
                 
                     }))
@@ -86,4 +151,13 @@ class LogInViewController: UIViewController {
         }
         task.resume()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "loggedIn") {
+            let controller = segue.destinationViewController as! ContainerVC
+            controller.articles = self.articles
+            controller.getUserList = true
+        }
+    }
+    
 }
