@@ -2,6 +2,9 @@
 //  FeedViewController.swift
 //  LakesideTatler
 //
+//  This is the home screen's code
+//
+//
 //  Created by Jacob Kohn on 3/16/16.
 //  Copyright © 2016 Jacob Kohn. All rights reserved.
 //
@@ -37,6 +40,10 @@ class FeedViewController: UITableViewController {
     
     @IBOutlet weak var table: UITableView!
     
+    /*
+    * This function sorts the articles into different catagories
+    * It sets all the catagory NSDictionaries to blank and then populates them
+    */
     func sortArticles() {
         news = [NSDictionary]()
         entertainment = [NSDictionary]()
@@ -87,13 +94,16 @@ class FeedViewController: UITableViewController {
         }
     }
     
-    
+    /*
+    * This function is called when the page is opened
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //sets an observer to know when the menu chooses a new catagory
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeCatagory:", name: "changeCatagory", object: nil)
         
-        
+        //loads the authors
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName:"User")
@@ -106,27 +116,36 @@ class FeedViewController: UITableViewController {
         }
         users = fetchedResults
         
+        //if hasn't updated users in 60 days :
         if(getUserList) {
+            
+            //if there are no users stored, gets the first thousand
             if(users.isEmpty) {
                 getUsers(1000)
             } else {
+                
+                //deletes all users, then gets total # of users stored + 50
                 let num = users.count + 50
                 deleteUsers()
                 getUsers(num)
             }
         }
         
+        //sets the current type = 0 (displays all articles)
         currentType = 0
         
+        //connects the table to the code
         table.dataSource = self
         table.delegate = self
         
-        print("opened")
-        
+        //sorts the articles and adds function to the nav bar
         sortArticles()
         configureNavBar()
     }
     
+    /*
+    * This function deletes all the users/authors stored in CoreData
+    */
     func deleteUsers() {
         func deleteIncidents() {
             let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -144,7 +163,14 @@ class FeedViewController: UITableViewController {
         }
     }
     
-    
+    /*
+    * This calls the XMLRPC API method getUsers
+    * It updates the user list for the app, storing the results in CoreData
+    * Paramater: number - The number of users sent to Wordpress to return
+    * Stores in Core Data entity User:
+    *   id - Wordpress' assigned ID number to the user
+    *   name - Name of the user
+    */
     func getUsers(number: Int) {
         var url = NSURL()
         url = NSURL(string: "http://tatler.lakesideschool.org/xmlrpc.php")!
@@ -166,7 +192,6 @@ class FeedViewController: UITableViewController {
         } catch _ {
             print("oops")
         }
-        
         var task = session.dataTaskWithRequest(request) {
             (data, response, error) -> Void in
             if error != nil {
@@ -194,7 +219,13 @@ class FeedViewController: UITableViewController {
         task.resume()
     }
     
+    /*
+    * This method sorts the users
+    * Paramater: decoder [NSDictionary] - the key-value array from 
+    * Wordpress that was returned from the XMLRPC API call
+    */
     func parseUsers(decoder: [NSDictionary]) {
+        //Loops through all Users returned from the function
         for(var i=0; i<decoder.count; i++) {
             let appDelegate =
             UIApplication.sharedApplication().delegate as! AppDelegate
@@ -206,7 +237,7 @@ class FeedViewController: UITableViewController {
             
             
             
-            //creates new password object
+            //Stores the user in Core Data
             let userObject = NSManagedObject(entity: entity!,
                 insertIntoManagedObjectContext:managedContext)
             userObject.setValue(decoder[i]["display_name"] as! String, forKey: "name")
@@ -229,6 +260,10 @@ class FeedViewController: UITableViewController {
         }
     }
     
+    /*
+    * Called when the notification to change catagories is sent
+    * Changes the currentType and reloads table data
+    */
     func changeCatagory(notification: NSNotification) {
         let catagory = notification.object as! Int
         
@@ -236,6 +271,8 @@ class FeedViewController: UITableViewController {
         
         table.reloadData()
     }
+    
+////////////// MENU FUNCTIONS //////////////
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -254,7 +291,13 @@ class FeedViewController: UITableViewController {
         performSegueWithIdentifier("openPushWindow", sender: nil)
     }
     
+//////////////////////////////////////////
     
+    
+    /*
+    * This function configures the nav bar
+    * Sets color, items, tint
+    */
     func configureNavBar() {
         //let blue = UIColor(red: 0.0, green: 0.0, blue: 0.509, alpha: 1.0)
         self.navigationController?.navigationBar.barTintColor = maroon
@@ -273,16 +316,14 @@ class FeedViewController: UITableViewController {
         self.navigationItem.backBarButtonItem?.tintColor = gold
     }
     
-    
-    
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    /*
+    * This is a tableView function - sets number of cells in table
+    */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(currentType == 1) {
             return news.count
@@ -309,6 +350,9 @@ class FeedViewController: UITableViewController {
         }
     }
     
+    /*
+    * Sets the contents of a cell
+    */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! ArticleCell
         
@@ -349,6 +393,10 @@ class FeedViewController: UITableViewController {
         return cell
     }
     
+    /*
+    * This function controls what gets passed in between View Controllers
+    * In this instance of the function it sends articles to other View Controllers
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if(segue.identifier == "readArticleWithImage") {
@@ -360,6 +408,11 @@ class FeedViewController: UITableViewController {
         }
     }
     
+    
+    /*
+    * This is called when a cell is selected
+    * It attaches the selected article to the segue to the Article VC
+    */
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         var article = NSDictionary()
@@ -396,5 +449,4 @@ class FeedViewController: UITableViewController {
         }
         
     }
-    
 }

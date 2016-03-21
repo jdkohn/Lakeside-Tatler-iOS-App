@@ -1,6 +1,6 @@
 //
 //  Reachability.swift
-//  
+//
 //
 //  Created by Jacob Kohn on 2/17/16.
 //
@@ -8,6 +8,14 @@
 
 import Foundation
 import SystemConfiguration
+
+/*
+
+This class contains the method that checks if the device the
+app is run on is connected to the Internet, do not change this code
+
+*/
+
 
 public class Reachability {
     class func isConnectedToNetwork() -> Bool {

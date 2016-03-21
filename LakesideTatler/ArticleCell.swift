@@ -1,6 +1,8 @@
 //
 //  ArticleCell.swift
-//  HaleSentinel
+//  LakesideTatler
+//
+//  This is the class for the cells displayed in the home table
 //
 //  Created by Jacob Kohn on 2/7/16.
 //  Copyright © 2016 Jacob Kohn. All rights reserved.

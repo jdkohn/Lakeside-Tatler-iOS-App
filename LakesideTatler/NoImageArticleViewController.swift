@@ -28,6 +28,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
     let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
     let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
     
+    /*
+    * Disables scrolling menu
+    */
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -36,6 +39,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+    /*
+    * Gets content ready for user
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +97,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         configureNavBar()
     }
     
+    /*
+    * Loads authors from CoreData
+    */
     func getAuthors() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -105,6 +114,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         authors = fetchedResults
     }
     
+    /*
+    * Scroll view function
+    */
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.contentOffset.x>0 {
             scrollView.contentOffset.x = 0
@@ -115,6 +127,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    /*
+    * Resets the scroll view of the container view controller to scrollable
+    */
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -135,6 +150,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
 //        self.navigationItem.setHidesBackButton(true, animated: false)
 //    }
     
+    /*
+    * Configures the nav bar, sets color, header
+    */
     func configureNavBar() {
         self.navigationController?.navigationBar.barTintColor = maroon
         
@@ -149,11 +167,17 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.tintColor = gold
     }
     
+    /*
+    * Goes to home when user pans from left edge, right
+    */
     func goHome(sender: UIScreenEdgePanGestureRecognizer) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
     }
     
+    /*
+    * Returns home when a bar button is pressed
+    */
     func home(sender: UIBarButtonItem) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);

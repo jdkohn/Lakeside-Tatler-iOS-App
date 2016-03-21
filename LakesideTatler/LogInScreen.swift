@@ -2,6 +2,8 @@
 //  LogInScreen.swift
 //  LakesideTatler
 //
+//  This is the log in screen
+//
 //  Created by Jacob Kohn on 3/15/16.
 //  Copyright © 2016 Jacob Kohn. All rights reserved.
 //
@@ -25,6 +27,9 @@ class LogInViewController: UIViewController {
     let fadedGold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 0.75)
     
     
+    /*
+    * Called when the view loads
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +52,7 @@ class LogInViewController: UIViewController {
             attributes:[NSForegroundColorAttributeName: fadedGold])
         
         
+        //gets list of times that the app has been logged in to
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName:"LogIn")
@@ -66,6 +72,9 @@ class LogInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /*
+    * This function is called when the User clicks the log in button
+    */
     func logIn(sender: UIButton) {
         
         //get the contents of the text fields
@@ -113,7 +122,7 @@ class LogInViewController: UIViewController {
                     
                     
                     
-                    //creates new password object
+                    //creates new log in object
                     let logInObject = NSManagedObject(entity: entity!,
                         insertIntoManagedObjectContext:managedContext)
                     logInObject.setValue(Int(NSDate().timeIntervalSince1970), forKey: "time")
@@ -132,19 +141,20 @@ class LogInViewController: UIViewController {
                         try managedContext.save()
                     } catch _ {
                     }
- 
                     
-                    
+                    //goes to home screen
                     
                    self.performSegueWithIdentifier("loggedIn", sender: nil)
                 } else {
+                    
+                    //if the user failed the log in attempt
+                    
                     let alert = UIAlertController(title: "Oops!", message: "Incorrect Username/Password", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) -> Void in
                 
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
-//                    self.usernameField.text! = ""
-//                    self.passwordField.text! = ""
+
                 }
             }
             
@@ -152,6 +162,9 @@ class LogInViewController: UIViewController {
         task.resume()
     }
     
+    /*
+    * Called when segue is moved, sends articles to Home VC
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "loggedIn") {
             let controller = segue.destinationViewController as! ContainerVC

@@ -1,6 +1,8 @@
 //
 //  SplashScreen.swift
-//  HaleSentinel
+//  LakesideTatler
+//
+//  This is the loading screen for the app
 //
 //  Created by Jacob Kohn on 2/10/16.
 //  Copyright © 2016 Jacob Kohn. All rights reserved.
@@ -17,9 +19,14 @@ class SplashScreen: UIViewController {
     var timesLoggedIn = [NSManagedObject]()
     var lastLogIn = Double()
     
+    
+    /*
+    * Called when view loads
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Gets list of logs in
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName:"LogIn")
@@ -32,38 +39,60 @@ class SplashScreen: UIViewController {
         }
         timesLoggedIn = fetchedResults
         
-        testUsers()
-        
+        //Sets time = to the last log in, later checked if > 60 days
         if(timesLoggedIn.isEmpty) {
             lastLogIn = NSDate().timeIntervalSince1970 - 100000000.0
         } else {
             lastLogIn = Double(timesLoggedIn[timesLoggedIn.count - 1].valueForKey("time") as! Int)
         }
+        
+
     
         loadArticles()
         
     }
     
-    func testUsers() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    /* UNCOMMENT WHEN LOG IN BLOCK REMOVED
+
+    func updateLogIn(lastLogIn: Double) {
+        
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName:"User")
-        let error: NSError?
-        var fetchedResults = [NSManagedObject]()
+        
+        let entity =  NSEntityDescription.entityForName("LogIn",
+        inManagedObjectContext:
+        managedContext)
+        
+        
+        
+        //creates new log in object
+        let logInObject = NSManagedObject(entity: entity!,
+        insertIntoManagedObjectContext:managedContext)
+        logInObject.setValue(Int(NSDate().timeIntervalSince1970), forKey: "time")
+        
+        var error: NSError?
         do {
-            fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Fetch failed: \(error.localizedDescription)")
+        try managedContext.save()
+        } catch var error1 as NSError {
+        error = error1
+        print("Could not save \(error), \(error?.userInfo)")
         }
-        let users = fetchedResults
         
-        print(users.count)
+        self.timesLoggedIn.insert(logInObject, atIndex: self.timesLoggedIn.count)
         
-        for(var i=0; i<users.count; i++) {
-            print((String(users[i].valueForKey("id") as! Int)) + ": " + (users[i].valueForKey("name") as! String))
+        do {
+        try managedContext.save()
+        } catch _ {
         }
     }
+
+    */
     
+    /*
+    * Checks to see if connected to the Internet -
+    * If connected, calls method to get articles
+    */
     func loadArticles() {
         if(Reachability.isConnectedToNetwork()) {
             getArticles()
@@ -79,6 +108,11 @@ class SplashScreen: UIViewController {
         }
     }
     
+    
+    /*
+    * Calls the XMLRPC API Method getPosts
+    * Gets the first 100 posts from the Tatler's website
+    */
     func getArticles() {
         var url = NSURL()
         url = NSURL(string: "http://tatler.lakesideschool.org/xmlrpc.php")!
@@ -131,6 +165,19 @@ class SplashScreen: UIViewController {
         task.resume()
     }
     
+    /*
+    * This takes the return [NSDictionary] from the XMLRPC function
+    * With that [NSDictionary] it parses out and gets:
+    *   *return field*: *Description* - *Saved as*
+    *   
+    *   post_title: Title of the article - name
+    *   post_content: Content of the article - content
+    *   post_id: ID number of the article - id
+    *   post_author: ID number of the author - author
+    *   post_thumbnail: if post_thumbnail is not empty sets image=true
+    *   post_thumbnail[link]: link to the image - imageLink
+    *   post_date: Date of the article
+    */
     func parseDecoder(decoder: [NSDictionary]) {
         
         // GET FIELDS
@@ -216,6 +263,10 @@ class SplashScreen: UIViewController {
         
         if((NSDate().timeIntervalSince1970 - lastLogIn) > 5184000.0) {
             performSegueWithIdentifier("logIn", sender: nil)
+            /* 
+            updateLogIn()
+            performSegueWithIdentifier("doneLoading", sender: nil)
+            */
         } else {
             performSegueWithIdentifier("doneLoading", sender: nil)
         }
@@ -241,12 +292,22 @@ class SplashScreen: UIViewController {
         articles = new
     }
 
+    /*
+    * This controls what gets sent between view controllers in a segue
+    * This sends the list of articles to either the home or log in screen
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Segue to the home screen - sends the list of articles and sets getUserList to false
         if(segue.identifier == "doneLoading") {
             let controller = segue.destinationViewController as! ContainerVC
             controller.articles = self.articles
-            controller.getUserList = false
+            if((NSDate().timeIntervalSince1970 - lastLogIn) > 5184000.0) {
+                controller.getUserList = true
+            } else {
+                controller.getUserList = false
+            }
         }
+        //segue to the log in screen - sends the list of articles
         if(segue.identifier == "logIn") {
             let controller = segue.destinationViewController as! LogInViewController
             controller.articles = self.articles

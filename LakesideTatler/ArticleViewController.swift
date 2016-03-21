@@ -25,6 +25,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     var image = UIImage()
     
+    /*
+    * Sets when the page is about to show up
+    * Disables the menu
+    */
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -32,7 +36,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         container.scrollView.scrollEnabled = false
     }
     
-    
+    /*
+    * Sets content, gets view ready
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,6 +111,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         configureNavBar()
     }
     
+    /*
+    * Loads the authors from Core Data
+    */
     func getAuthors() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -119,6 +128,10 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         authors = fetchedResults
     }
     
+    
+    /*
+    * Scroll view method
+    */
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.contentOffset.x>0 {
             scrollView.contentOffset.x = 0
@@ -149,11 +162,18 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    /*
+    * Called when user hits swipes right from left edge
+    */
     func goHome(sender: UIScreenEdgePanGestureRecognizer) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
     }
     
+    /*
+    * Called when view shows up
+    * Loads the image
+    */
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -175,6 +195,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     }
     
+    /*
+    * Pops to the home view controller
+    */
     func home(sender: UIBarButtonItem) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true);
