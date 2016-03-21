@@ -32,6 +32,9 @@ class FeedViewController: UITableViewController {
     
     let types = ["all", "uncatagorized", "arts", "opinions", "reviews", "news", "life-culture", "features", "sports", "technology"]
     
+    let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
+    let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
+    
     @IBOutlet weak var table: UITableView!
     
     func sortArticles() {
@@ -253,22 +256,21 @@ class FeedViewController: UITableViewController {
     
     
     func configureNavBar() {
-        let blue = UIColor(red: 0.0, green: 0.0, blue: 0.509, alpha: 1.0)
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        //let blue = UIColor(red: 0.0, green: 0.0, blue: 0.509, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = maroon
         
         let logo = UIImage(named: "h2.png")
         
         let menuImage = UIImage(named: "menuButtonSlim2.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: menuImage, style: .Plain, target: self, action: "openMenu:")
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.blackColor()
+        self.navigationItem.leftBarButtonItem?.tintColor = gold
         
         let imageView = UIImageView(image:logo)
         
         self.navigationItem.titleView = imageView
-        //self.navigationItem.titleView?.tintColor = UIColor.blackColor()
         
-        self.navigationItem.backBarButtonItem?.tintColor = UIColor.blackColor()
+        self.navigationItem.backBarButtonItem?.tintColor = gold
     }
     
     
@@ -359,8 +361,6 @@ class FeedViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
         var article = NSDictionary()
         

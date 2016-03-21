@@ -8,12 +8,14 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 
 class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
     
     var article = NSDictionary()
     
-    var authors = [NSDictionary]()
+    var authors = [NSManagedObject]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentLabel: UILabel!
@@ -22,6 +24,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     
     var image = UIImage()
+    
+    let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
+    let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,12 +41,13 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
+        print(article)
         
         self.navigationController!.navigationBar.tintColor = UIColor.blackColor()
         
         self.navigationItem.backBarButtonItem?.tintColor = UIColor.blackColor()
         
-        titleLabel.text = (article.valueForKey("title") as! String)
+        titleLabel.text = (article["title"] as! String)
         contentLabel.text = (article.valueForKey("content") as! String)
         
         let widthConstraint = NSLayoutConstraint (item: contentLabel,
@@ -66,10 +72,12 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.scrollEnabled = true
         
+        getAuthors()
+        
         var labelSet = false
         for(var i=0; i<authors.count; i++) {
-            if(String(authors[i]["id"] as! Int) == (article["author"] as! String)) {
-                authorLabel.text = "By: " + (authors[i]["author"] as! String)
+            if(String(authors[i].valueForKey("id") as! Int) == (article["author"] as! String)) {
+                authorLabel.text = "By: " + (authors[i].valueForKey("name") as! String)
                 labelSet = true
                 break;
             }
@@ -81,6 +89,20 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         
         
         configureNavBar()
+    }
+    
+    func getAuthors() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName:"User")
+        let error: NSError?
+        var fetchedResults = [NSManagedObject]()
+        do {
+            fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        authors = fetchedResults
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -100,10 +122,21 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         container.scrollView.scrollEnabled = true
     }
     
-    
+//    func configureNavBar() {
+//        let purple = UIColor(red: 0.23137, green: 0.0, blue: 0.79215, alpha: 1.0)
+//        
+//        self.navigationController?.navigationBar.barTintColor = purple
+//        self.navigationController?.navigationBar.topItem!.title = "My Ideas"
+//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+//        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "newIdea:")
+//        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        self.navigationController!.navigationBar.titleTextAttributes = titleDict as! [String : AnyObject]
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationItem.setHidesBackButton(true, animated: false)
+//    }
     
     func configureNavBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = maroon
         
         let logo = UIImage(named: "topLogo.png")
         
@@ -111,6 +144,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         
         self.navigationItem.titleView = imageView
         
+        self.navigationItem.backBarButtonItem?.tintColor = gold
+        
+        self.navigationController?.navigationBar.tintColor = gold
     }
     
     func goHome(sender: UIScreenEdgePanGestureRecognizer) {

@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     var article = NSDictionary()
     
-    var authors = [NSDictionary]()
+    var authors = [NSManagedObject]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentLabel: UILabel!
@@ -85,10 +86,12 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.scrollEnabled = true
         
+        getAuthors()
+        
         var labelSet = false
         for(var i=0; i<authors.count; i++) {
-            if(String(authors[i]["id"] as! Int) == (article["author"] as! String)) {
-                authorLabel.text = "By: " + (authors[i]["author"] as! String)
+            if(String(authors[i].valueForKey("id") as! Int) == (article["author"] as! String)) {
+                authorLabel.text = "By: " + (authors[i].valueForKey("name") as! String)
                 labelSet = true
                 break;
             }
@@ -100,6 +103,20 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         
         configureNavBar()
+    }
+    
+    func getAuthors() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName:"User")
+        let error: NSError?
+        var fetchedResults = [NSManagedObject]()
+        do {
+            fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        authors = fetchedResults
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
