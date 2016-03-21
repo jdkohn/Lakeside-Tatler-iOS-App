@@ -25,6 +25,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
     var image = UIImage()
     
+    let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
+    let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
+    
     /*
     * Sets when the page is about to show up
     * Disables the menu
@@ -151,8 +154,11 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     
 
     
+    /*
+    * Configures the nav bar, sets color, header
+    */
     func configureNavBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = maroon
         
         let logo = UIImage(named: "topLogo.png")
         
@@ -160,6 +166,9 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         self.navigationItem.titleView = imageView
         
+        self.navigationItem.backBarButtonItem?.tintColor = gold
+        
+        self.navigationController?.navigationBar.tintColor = gold
     }
     
     /*

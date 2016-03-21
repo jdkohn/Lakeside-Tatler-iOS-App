@@ -17,6 +17,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var logo: UIImageView!
     
     var articles = [NSDictionary]()
     var timesLoggedIn = [NSManagedObject]()
@@ -32,6 +33,10 @@ class LogInViewController: UIViewController {
     */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logoImage = UIImage(named: "Logo Small.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        logo.image = logoImage
+        logo.tintColor = gold
         
         logInButton.addTarget(self, action: "logIn:", forControlEvents: .TouchUpInside)
         
@@ -51,6 +56,7 @@ class LogInViewController: UIViewController {
         passwordField.attributedPlaceholder = NSAttributedString(string:"Password",
             attributes:[NSForegroundColorAttributeName: fadedGold])
         
+        self.hideKeyboardWhenTappedAround()
         
         //gets list of times that the app has been logged in to
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

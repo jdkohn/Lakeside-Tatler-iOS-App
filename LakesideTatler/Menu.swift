@@ -11,14 +11,19 @@ import UIKit
 
 class Menu : UITableViewController {
     
+    let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
+    let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
+    
     let menuOptions = ["All", "News", "Features", "Entertainment", "Sports", "Arts", "Opinions", "Reviews", "Technology", "Life & Culture", "Uncatagorized"]
     
     override func viewDidLoad() {
+        self.view.backgroundColor = maroon
+        
         configureNavBar()
     }
     
     func configureNavBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = maroon
         
         let logo = UIImage(named: "topLogo.png")
         
@@ -59,6 +64,9 @@ extension Menu {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         cell.textLabel?.text = menuOptions[indexPath.row]
         
+        cell.backgroundColor = maroon
+        cell.tintColor = gold
+        cell.textLabel?.textColor = gold
         
         return cell
     }

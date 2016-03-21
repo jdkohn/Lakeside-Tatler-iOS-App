@@ -18,13 +18,22 @@ class SplashScreen: UIViewController {
     var articles = [NSDictionary]()
     var timesLoggedIn = [NSManagedObject]()
     var lastLogIn = Double()
-    
+
+    let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
+    let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
+    @IBOutlet weak var logo: UIImageView!
     
     /*
     * Called when view loads
     */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logoImage = UIImage(named: "Logo Small.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        logo.image = logoImage
+        logo.tintColor = gold
+        
+        self.view.backgroundColor = maroon
         
         //Gets list of logs in
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -54,6 +63,10 @@ class SplashScreen: UIViewController {
     
     /* UNCOMMENT WHEN LOG IN BLOCK REMOVED
 
+    
+    /*
+    * Updates the last time logged in, this is to update users, not to keep track of actual log-ins
+    */
     func updateLogIn(lastLogIn: Double) {
         
         let appDelegate =
@@ -217,7 +230,7 @@ class SplashScreen: UIViewController {
             }
             
             
-            // Parse Content
+            // Parse Content - takes out HTML tags, extra spaces, etc.
             if let range = content.rangeOfString("\n\n") {
                 
                 let intIndex: Int = content.startIndex.distanceTo(range.startIndex)
@@ -227,6 +240,7 @@ class SplashScreen: UIViewController {
                 content = substring
             }
             
+
             if let range = content.rangeOfString("[/caption]") {
                 let intIndex: Int = content.startIndex.distanceTo(range.endIndex)
                 let startIndex2 = content.startIndex.advancedBy(intIndex + 2)
@@ -248,6 +262,10 @@ class SplashScreen: UIViewController {
             
             content = content.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
 
+            if(content.substringWithRange(Range<String.Index>(start: content.startIndex, end: content.startIndex.advancedBy(1))) == "\n") {
+                
+                content = content.substringWithRange(Range<String.Index>(start: content.startIndex.advancedBy(1), end: content.endIndex))
+            }
             
             let pd = ["title": name, "content": content, "id": id, "author": author, "catagories": catagories, "status": status, "imageLink": imageLink, "image": image, "date": date]
             

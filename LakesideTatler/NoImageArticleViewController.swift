@@ -137,18 +137,6 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
         container.scrollView.scrollEnabled = true
     }
     
-//    func configureNavBar() {
-//        let purple = UIColor(red: 0.23137, green: 0.0, blue: 0.79215, alpha: 1.0)
-//        
-//        self.navigationController?.navigationBar.barTintColor = purple
-//        self.navigationController?.navigationBar.topItem!.title = "My Ideas"
-//        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-//        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "newIdea:")
-//        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//        self.navigationController!.navigationBar.titleTextAttributes = titleDict as! [String : AnyObject]
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
-//        self.navigationItem.setHidesBackButton(true, animated: false)
-//    }
     
     /*
     * Configures the nav bar, sets color, header
