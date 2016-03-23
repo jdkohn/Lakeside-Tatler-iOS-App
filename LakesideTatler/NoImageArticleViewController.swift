@@ -144,9 +144,9 @@ class NoImageArticleViewController: UIViewController, UIScrollViewDelegate {
     func configureNavBar() {
         self.navigationController?.navigationBar.barTintColor = maroon
         
-        let logo = UIImage(named: "topLogo.png")
+        let logo = UIImage(named: "lion PNG.png")
         
-        let imageView = UIImageView(image:logo)
+        let imageView = UIImageView(image: logo)
         
         self.navigationItem.titleView = imageView
         

@@ -29,6 +29,7 @@
 		2C4620DA1CA064010064EDDA /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4620D91CA064010064EDDA /* DismissKeyboard.swift */; };
 		2C4620DC1CA0A0C40064EDDA /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620DB1CA0A0C40064EDDA /* Logo.png */; };
 		2C4620DE1CA0A1710064EDDA /* Logo Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620DD1CA0A1710064EDDA /* Logo Small.png */; };
+		2C4620E01CA237790064EDDA /* lion PNG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C4620DF1CA237790064EDDA /* lion PNG.png */; };
 		502A98C505F96654ECB25DB0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2F3FBE5D8FB64B79D74140 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		0FDF101B282C511804D89E4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		2C4620891C8E04AC0064EDDA /* LakesideTatler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LakesideTatler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C4620891C8E04AC0064EDDA /* The Tatler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Tatler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C46208E1C8E04AC0064EDDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C4620911C8E04AC0064EDDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		2C4620D91CA064010064EDDA /* DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
 		2C4620DB1CA0A0C40064EDDA /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		2C4620DD1CA0A1710064EDDA /* Logo Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo Small.png"; sourceTree = "<group>"; };
+		2C4620DF1CA237790064EDDA /* lion PNG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lion PNG.png"; sourceTree = "<group>"; };
 		4C2F3FBE5D8FB64B79D74140 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67231DFFA9D77282DD19D03D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +126,7 @@
 		2C46208A1C8E04AC0064EDDA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C4620891C8E04AC0064EDDA /* LakesideTatler.app */,
+				2C4620891C8E04AC0064EDDA /* The Tatler.app */,
 				2C4620A01C8E04AC0064EDDA /* LakesideTatlerTests.xctest */,
 				2C4620AB1C8E04AC0064EDDA /* LakesideTatlerUITests.xctest */,
 			);
@@ -136,6 +138,7 @@
 			children = (
 				2C4620D31C9F404A0064EDDA /* menuButtonSlim2.png */,
 				2C4620DB1CA0A0C40064EDDA /* Logo.png */,
+				2C4620DF1CA237790064EDDA /* lion PNG.png */,
 				2C4620DD1CA0A1710064EDDA /* Logo Small.png */,
 				2C46208C1C8E04AC0064EDDA /* AppDelegate.swift */,
 				2C46208E1C8E04AC0064EDDA /* ViewController.swift */,
@@ -214,7 +217,7 @@
 			);
 			name = LakesideTatler;
 			productName = LakesideTatler;
-			productReference = 2C4620891C8E04AC0064EDDA /* LakesideTatler.app */;
+			productReference = 2C4620891C8E04AC0064EDDA /* The Tatler.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2C46209F1C8E04AC0064EDDA /* LakesideTatlerTests */ = {
@@ -301,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4620E01CA237790064EDDA /* lion PNG.png in Resources */,
 				2C46209A1C8E04AC0064EDDA /* LaunchScreen.storyboard in Resources */,
 				2C4620971C8E04AC0064EDDA /* Assets.xcassets in Resources */,
 				2C4620DC1CA0A0C40064EDDA /* Logo.png in Resources */,
@@ -538,7 +542,7 @@
 				INFOPLIST_FILE = LakesideTatler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "The Tatler";
 			};
 			name = Debug;
 		};
@@ -550,7 +554,7 @@
 				INFOPLIST_FILE = LakesideTatler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jk.LakesideTatler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "The Tatler";
 			};
 			name = Release;
 		};

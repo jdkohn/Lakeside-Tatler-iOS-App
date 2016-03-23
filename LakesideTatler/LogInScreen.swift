@@ -70,7 +70,6 @@ class LogInViewController: UIViewController {
             print("Fetch failed: \(error.localizedDescription)")
         }
         timesLoggedIn = fetchedResults
-        
     }
     
     override func didReceiveMemoryWarning() {

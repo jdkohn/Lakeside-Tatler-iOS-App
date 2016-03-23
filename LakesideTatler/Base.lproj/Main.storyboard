@@ -9,7 +9,7 @@
         <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -69,7 +69,7 @@
         <!--Splash Screen-->
         <scene sceneID="Ec5-gy-NVj">
             <objects>
-                <viewController id="Bf7-2h-NPI" customClass="SplashScreen" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bf7-2h-NPI" customClass="SplashScreen" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="olM-TE-4vI"/>
                         <viewControllerLayoutGuide type="bottom" id="Jgt-AQ-2ZC"/>
@@ -110,7 +110,7 @@
         <!--ContainerVC-->
         <scene sceneID="24z-9b-Wwo">
             <objects>
-                <viewController id="6MG-e2-I0f" customClass="ContainerVC" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6MG-e2-I0f" customClass="ContainerVC" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GYQ-FQ-HoK"/>
                         <viewControllerLayoutGuide type="bottom" id="gTD-Rp-wx1"/>
@@ -181,7 +181,7 @@
         <!--Menu-->
         <scene sceneID="h9L-XD-08u">
             <objects>
-                <tableViewController id="k0e-hw-HAF" customClass="Menu" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="k0e-hw-HAF" customClass="Menu" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nXr-ad-OZy">
                         <rect key="frame" x="0.0" y="44" width="260" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,14 +240,14 @@
         <!--Feed View Controller-->
         <scene sceneID="Uxd-qr-JBo">
             <objects>
-                <tableViewController id="z1w-eo-HFg" customClass="FeedViewController" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="z1w-eo-HFg" customClass="FeedViewController" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="aDd-ly-cE8">
                         <rect key="frame" x="0.0" y="44" width="568" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" rowHeight="110" id="SAl-dc-Q6Z" customClass="ArticleCell" customModule="LakesideTatler" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" rowHeight="110" id="SAl-dc-Q6Z" customClass="ArticleCell" customModule="The_Tatler" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="568" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SAl-dc-Q6Z" id="oip-D9-BoJ">
@@ -335,7 +335,7 @@
         <!--No Image Article View Controller-->
         <scene sceneID="mfQ-hf-B3F">
             <objects>
-                <viewController id="QzM-zq-KTJ" customClass="NoImageArticleViewController" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QzM-zq-KTJ" customClass="NoImageArticleViewController" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v5i-En-H5A"/>
                         <viewControllerLayoutGuide type="bottom" id="2Da-6Z-jjL"/>
@@ -506,7 +506,7 @@
         <!--Article View Controller-->
         <scene sceneID="Wv7-nL-MG9">
             <objects>
-                <viewController id="dbv-IU-6fc" customClass="ArticleViewController" customModule="LakesideTatler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dbv-IU-6fc" customClass="ArticleViewController" customModule="The_Tatler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dRN-aM-S0d"/>
                         <viewControllerLayoutGuide type="bottom" id="5YA-Cn-2xZ"/>

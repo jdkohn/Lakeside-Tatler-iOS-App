@@ -302,14 +302,14 @@ class FeedViewController: UITableViewController {
         //let blue = UIColor(red: 0.0, green: 0.0, blue: 0.509, alpha: 1.0)
         self.navigationController?.navigationBar.barTintColor = maroon
         
-        let logo = UIImage(named: "h2.png")
-        
         let menuImage = UIImage(named: "menuButtonSlim2.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: menuImage, style: .Plain, target: self, action: "openMenu:")
         self.navigationItem.leftBarButtonItem?.tintColor = gold
         
-        let imageView = UIImageView(image:logo)
+        let logo = UIImage(named: "lion PNG.png")
+        
+        let imageView = UIImageView(image: logo)
         
         self.navigationItem.titleView = imageView
         
