@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2C4620881C8E04AC0064EDDA"
-               BuildableName = "LakesideTatler.app"
+               BuildableName = "The Tatler.app"
                BlueprintName = "LakesideTatler"
                ReferencedContainer = "container:LakesideTatler.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C4620881C8E04AC0064EDDA"
-            BuildableName = "LakesideTatler.app"
+            BuildableName = "The Tatler.app"
             BlueprintName = "LakesideTatler"
             ReferencedContainer = "container:LakesideTatler.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C4620881C8E04AC0064EDDA"
-            BuildableName = "LakesideTatler.app"
+            BuildableName = "The Tatler.app"
             BlueprintName = "LakesideTatler"
             ReferencedContainer = "container:LakesideTatler.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C4620881C8E04AC0064EDDA"
-            BuildableName = "LakesideTatler.app"
+            BuildableName = "The Tatler.app"
             BlueprintName = "LakesideTatler"
             ReferencedContainer = "container:LakesideTatler.xcodeproj">
          </BuildableReference>
@@ -106,6 +106,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "LakesideTatler"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

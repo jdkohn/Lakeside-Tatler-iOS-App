@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bf7-2h-NPI">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -100,7 +99,7 @@
                     <connections>
                         <outlet property="logo" destination="3hb-ol-T35" id="7KG-GM-Khh"/>
                         <segue destination="6MG-e2-I0f" kind="show" identifier="doneLoading" id="t4G-fJ-vSV"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="logIn" id="5sg-33-9Dv"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="logIn" id="5sg-33-9Dv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lh-w0-99K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,11 +299,11 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="sDj-cZ-PnW"/>
                                             <exclude reference="ltf-Tq-TSL"/>
-                                            <exclude reference="ySc-9g-iYf"/>
+                                            <exclude reference="sDj-cZ-PnW"/>
                                             <exclude reference="JZu-w1-MWX"/>
                                             <exclude reference="RbS-S5-QfR"/>
+                                            <exclude reference="ySc-9g-iYf"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -649,31 +648,31 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="2nN-MD-v6L"/>
-                                        <exclude reference="IIt-9U-lFi"/>
-                                        <exclude reference="hCa-eq-rR4"/>
-                                        <exclude reference="ghV-eh-czU"/>
                                         <exclude reference="2ey-LR-tBH"/>
+                                        <exclude reference="IIt-9U-lFi"/>
+                                        <exclude reference="ghV-eh-czU"/>
+                                        <exclude reference="hCa-eq-rR4"/>
+                                        <exclude reference="KMT-pq-8ep"/>
                                         <exclude reference="OtU-dT-WjX"/>
+                                        <exclude reference="eI3-q8-SeV"/>
+                                        <exclude reference="gSx-Lh-PfK"/>
+                                        <exclude reference="h64-YG-fIs"/>
                                         <exclude reference="s7R-l3-Phx"/>
                                         <exclude reference="tdM-ES-cVb"/>
                                         <exclude reference="tz1-5T-lP6"/>
-                                        <exclude reference="h64-YG-fIs"/>
-                                        <exclude reference="eI3-q8-SeV"/>
-                                        <exclude reference="KMT-pq-8ep"/>
                                         <exclude reference="z32-Gn-DjQ"/>
-                                        <exclude reference="gSx-Lh-PfK"/>
                                         <exclude reference="OTU-Sw-0ix"/>
-                                        <exclude reference="zzf-H2-NpA"/>
                                         <exclude reference="SpO-oz-YaZ"/>
                                         <exclude reference="rdn-rK-p7c"/>
-                                        <exclude reference="UVa-iD-Eux"/>
-                                        <exclude reference="g3f-2A-a00"/>
-                                        <exclude reference="XMo-EA-MW1"/>
+                                        <exclude reference="zzf-H2-NpA"/>
                                         <exclude reference="8UG-rV-IsE"/>
                                         <exclude reference="RSI-IV-Rs5"/>
-                                        <exclude reference="s1W-hH-cBF"/>
-                                        <exclude reference="i6N-yk-XCH"/>
+                                        <exclude reference="UVa-iD-Eux"/>
+                                        <exclude reference="XMo-EA-MW1"/>
+                                        <exclude reference="g3f-2A-a00"/>
                                         <exclude reference="gF0-0e-SoC"/>
+                                        <exclude reference="i6N-yk-XCH"/>
+                                        <exclude reference="s1W-hH-cBF"/>
                                     </mask>
                                 </variation>
                             </scrollView>

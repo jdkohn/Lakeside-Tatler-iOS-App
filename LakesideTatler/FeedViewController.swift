@@ -60,34 +60,34 @@ class FeedViewController: UITableViewController {
             
             for(var l=0; l<articles[i]["catagories"]!.count; l++) {
                 
-                if((articles[i]["catagories"]![l] as! String) == "news") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "news") {
                     news.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "features") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "features") {
                     features.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "sports") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "sports") {
                     sports.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "opinions") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "opinions") {
                     opinions.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "arts") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "arts") {
                     arts.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "life-culture") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "life-culture") {
                     lifeculture.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "technology") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "technology") {
                     technology.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "uncategorized") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "uncategorized") {
                     uncategorized.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "entertainment") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "entertainment") {
                     entertainment.append(articles[i])
                 }
-                if((articles[i]["catagories"]![l] as! String) == "reviews") {
+                if((articles[i]["catagories"]!.objectAtIndex(l) as! String) == "reviews") {
                     reviews.append(articles[i])
                 }
             }
@@ -181,7 +181,7 @@ class FeedViewController: UITableViewController {
         var session = NSURLSession.sharedSession()
         
         let filter : [String:AnyObject] = [
-            "number" : number,
+            "number" : 1000,
         ]
         
         let encoder = WPXMLRPCEncoder(method: "wp.getUsers", andParameters: [0,"jacobk", "14050 1st Ave NE", filter])
@@ -338,13 +338,7 @@ class FeedViewController: UITableViewController {
         } else if(currentType == 6) {
             return opinions.count
         } else if(currentType == 7) {
-            return reviews.count
-        } else if(currentType == 8) {
-            return technology.count
-        } else if(currentType == 9) {
             return lifeculture.count
-        } else if(currentType == 10) {
-            return uncategorized.count
         } else {
             return articles.count
         }
@@ -372,13 +366,7 @@ class FeedViewController: UITableViewController {
         } else if(currentType == 6) {
             currentDictionary = opinions[indexPath.row]
         } else if(currentType == 7) {
-            currentDictionary = reviews[indexPath.row]
-        } else if(currentType == 8) {
-            currentDictionary = technology[indexPath.row]
-        } else if(currentType == 9) {
             currentDictionary = lifeculture[indexPath.row]
-        } else if(currentType == 10) {
-            currentDictionary = uncategorized[indexPath.row]
         } else {
             currentDictionary = articles[indexPath.row]
         }
@@ -386,7 +374,13 @@ class FeedViewController: UITableViewController {
         
         cell.title.text = (currentDictionary.valueForKey("title") as! String)
         
+        cell.preview.font = UIFont(name: cell.preview.font.fontName, size: 15)
+        
+        cell.preview.numberOfLines = 2
+        
         cell.preview.text = (currentDictionary.valueForKey("content") as! String)
+        
+        
         
         cell.preview.frame.size.width = self.view.frame.size.width - 51
         
@@ -431,13 +425,7 @@ class FeedViewController: UITableViewController {
         } else if(currentType == 6) {
             article = opinions[indexPath.row]
         } else if(currentType == 7) {
-            article = reviews[indexPath.row]
-        } else if(currentType == 8) {
-            article = technology[indexPath.row]
-        } else if(currentType == 9) {
             article = lifeculture[indexPath.row]
-        } else if(currentType == 10) {
-            article = uncategorized[indexPath.row]
         } else {
             article = articles[indexPath.row]
         }

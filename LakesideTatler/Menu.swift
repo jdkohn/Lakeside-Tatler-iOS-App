@@ -14,7 +14,7 @@ class Menu : UITableViewController {
     let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
     let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
     
-    let menuOptions = ["All", "News", "Features", "Entertainment", "Sports", "Arts", "Opinions", "Reviews", "Technology", "Life & Culture", "Uncatagorized"]
+    let menuOptions = ["All", "News", "Features", "Entertainment", "Sports", "Arts & Entertainment", "Opinions", "Life & Culture"]
     
     override func viewDidLoad() {
         self.view.backgroundColor = maroon

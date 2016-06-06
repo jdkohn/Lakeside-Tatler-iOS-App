@@ -28,6 +28,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
     let maroon = UIColor(red: 0.424, green: 0.0, blue: 0.106, alpha: 1.0)
     let gold = UIColor(red: 0.91, green: 0.643, blue: 0.07, alpha: 1.0)
     
+    var imageHeight = NSLayoutConstraint()
+    
     /*
     * Sets when the page is about to show up
     * Disables the menu
@@ -82,13 +84,13 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
             constant: self.view.frame.size.width + 4)
         self.view.addConstraint(imageWidth)
         
-        let imageHeight = NSLayoutConstraint (item: imageView,
+        imageHeight = NSLayoutConstraint (item: imageView,
             attribute: NSLayoutAttribute.Height,
             relatedBy: NSLayoutRelation.Equal,
             toItem: nil,
             attribute: NSLayoutAttribute.NotAnAttribute,
             multiplier: 1,
-            constant: self.view.frame.size.width / 2)
+            constant: 0)
         self.view.addConstraint(imageHeight)
         
         contentLabel.sizeToFit()
@@ -112,6 +114,8 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
         
         
         configureNavBar()
+        
+        //print(article["content"])
     }
     
     /*
@@ -198,7 +202,27 @@ class ArticleViewController: UIViewController, UIScrollViewDelegate {
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                
+                let multiplier = self.view.frame.size.width / self.image.size.width
+                
+                print(multiplier)
+                
+                let height = self.image.size.height * multiplier
+                
+                print(self.image.size.height)
+                
+                let updatedHeight = NSLayoutConstraint (item: self.imageView,
+                    attribute: NSLayoutAttribute.Height,
+                    relatedBy: NSLayoutRelation.Equal,
+                    toItem: nil,
+                    attribute: NSLayoutAttribute.NotAnAttribute,
+                    multiplier: 1,
+                    constant: height)
+                self.view.removeConstraint(self.imageHeight)
+                self.view.addConstraint(updatedHeight)
                 self.imageView.image = self.image
+                
             })
         })
     

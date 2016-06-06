@@ -86,85 +86,94 @@ class LogInViewController: UIViewController {
         let username = usernameField.text!
         let password = passwordField.text!
         
-        var responseString = "" as! NSString
-        
-        /*
-        * Make a POST request to the login page
-        * posts username and password entered and submits the form
-        */
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://tatler.lakesideschool.org/wp-login.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "log=" + username + "&pwd=" + password + "&wp-submit=Log%20In"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard error == nil && data != nil else {            // check for fundamental networking error
-                print("error=\(error)")
-                return
-            }
+        if((username != "") && (password != "")) {
             
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {  // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }
+            var responseString = "" as! NSString
             
-            responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-            //print("responseString = \(responseString)")
-            
-            //dispatch_async function runs after the request is made
-            
-            dispatch_async(dispatch_get_main_queue()) {
+            /*
+            * Make a POST request to the login page
+            * posts username and password entered and submits the form
+            */
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://tatler.lakesideschool.org/wp-login.php")!)
+            request.HTTPMethod = "POST"
+            let postString = "log=" + username + "&pwd=" + password + "&wp-submit=Log%20In"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+                guard error == nil && data != nil else {            // check for fundamental networking error
+                    print("error=\(error)")
+                    return
+                }
                 
-                //checks to see if the page post-login contains a 'login error'
-                if((responseString).rangeOfString("<div id=\"login_error\">").location == NSNotFound) {
-                    
-                    let appDelegate =
-                    UIApplication.sharedApplication().delegate as! AppDelegate
-                    let managedContext = appDelegate.managedObjectContext
-                    
-                    let entity =  NSEntityDescription.entityForName("LogIn",
-                        inManagedObjectContext:
-                        managedContext)
-                    
-                    
-                    
-                    //creates new log in object
-                    let logInObject = NSManagedObject(entity: entity!,
-                        insertIntoManagedObjectContext:managedContext)
-                    logInObject.setValue(Int(NSDate().timeIntervalSince1970), forKey: "time")
-                    
-                    var error: NSError?
-                    do {
-                        try managedContext.save()
-                    } catch var error1 as NSError {
-                        error = error1
-                        print("Could not save \(error), \(error?.userInfo)")
-                    }
-                    
-                    self.timesLoggedIn.insert(logInObject, atIndex: self.timesLoggedIn.count)
-                    
-                    do {
-                        try managedContext.save()
-                    } catch _ {
-                    }
-                    
-                    //goes to home screen
-                    
-                   self.performSegueWithIdentifier("loggedIn", sender: nil)
-                } else {
-                    
-                    //if the user failed the log in attempt
-                    
-                    let alert = UIAlertController(title: "Oops!", message: "Incorrect Username/Password", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) -> Void in
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {  // check for http errors
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                }
                 
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-
+                responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+                //print("responseString = \(responseString)")
+                
+                //dispatch_async function runs after the request is made
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    //checks to see if the page post-login contains a 'login error'
+                    if((responseString).rangeOfString("<div id=\"login_error\">").location == NSNotFound) {
+                        
+                        let appDelegate =
+                        UIApplication.sharedApplication().delegate as! AppDelegate
+                        let managedContext = appDelegate.managedObjectContext
+                        
+                        let entity =  NSEntityDescription.entityForName("LogIn",
+                            inManagedObjectContext:
+                            managedContext)
+                        
+                        
+                        
+                        //creates new log in object
+                        let logInObject = NSManagedObject(entity: entity!,
+                            insertIntoManagedObjectContext:managedContext)
+                        logInObject.setValue(Int(NSDate().timeIntervalSince1970), forKey: "time")
+                        
+                        var error: NSError?
+                        do {
+                            try managedContext.save()
+                        } catch var error1 as NSError {
+                            error = error1
+                            print("Could not save \(error), \(error?.userInfo)")
+                        }
+                        
+                        self.timesLoggedIn.insert(logInObject, atIndex: self.timesLoggedIn.count)
+                        
+                        do {
+                            try managedContext.save()
+                        } catch _ {
+                        }
+                        
+                        //goes to home screen
+                        
+                        self.performSegueWithIdentifier("loggedIn", sender: nil)
+                    } else {
+                        
+                        //if the user failed the log in attempt
+                        
+                        let alert = UIAlertController(title: "Oops!", message: "Incorrect Username/Password", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) -> Void in
+                            
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    }
                 }
             }
+            task.resume()
+        } else {
+            let alert = UIAlertController(title: "Oops!", message: "Incorrect Username/Password", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) -> Void in
+                
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
             
         }
-        task.resume()
     }
     
     /*

@@ -60,10 +60,7 @@ class SplashScreen: UIViewController {
         loadArticles()
         
     }
-    
-    /* UNCOMMENT WHEN LOG IN BLOCK REMOVED
 
-    
     /*
     * Updates the last time logged in, this is to update users, not to keep track of actual log-ins
     */
@@ -100,8 +97,6 @@ class SplashScreen: UIViewController {
         }
     }
 
-    */
-    
     /*
     * Checks to see if connected to the Internet -
     * If connected, calls method to get articles
@@ -171,7 +166,7 @@ class SplashScreen: UIViewController {
                 print("recieved")
                 
                 let decoder = WPXMLRPCDecoder(data: data)
-                
+
                 self.parseDecoder(decoder.object() as! [NSDictionary])
             })
         }
@@ -214,11 +209,11 @@ class SplashScreen: UIViewController {
             //dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
             let date = dateFormatter.stringFromDate(decoder[i]["post_date"] as! NSDate)
             
-            var imageLink = String()
+            var imageLink = ""
             var image = Bool()
             if let val = decoder[i]["post_thumbnail"]!["link"] {
-                if let x = val {
-                    imageLink = x as! String
+                if let x = val as? String {
+                    imageLink = x
                     image = true
                 } else {
                     image = false
@@ -230,17 +225,7 @@ class SplashScreen: UIViewController {
             }
             
             
-            // Parse Content - takes out HTML tags, extra spaces, etc.
-            if let range = content.rangeOfString("\n\n") {
-                
-                let intIndex: Int = content.startIndex.distanceTo(range.startIndex)
-                let startIndex2 = content.startIndex.advancedBy(intIndex + 2)
-                
-                let substring = content.substringWithRange(Range<String.Index>(start: startIndex2, end: content.endIndex))
-                content = substring
-            }
-            
-
+//            // Parse Content - takes out HTML tags, extra spaces, etc.
             if let range = content.rangeOfString("[/caption]") {
                 let intIndex: Int = content.startIndex.distanceTo(range.endIndex)
                 let startIndex2 = content.startIndex.advancedBy(intIndex + 2)
@@ -250,22 +235,22 @@ class SplashScreen: UIViewController {
                 
             }
             
-            if let range = content.rangeOfString("p>\n") {
-                let intIndex: Int = content.startIndex.distanceTo(range.endIndex)
-                let startIndex2 = content.startIndex.advancedBy(intIndex - 1)
-                
-                let substring = content.substringWithRange(Range<String.Index>(start: startIndex2, end: content.endIndex))
-                content = substring
-            }
-            
-            content = content.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+//            if let range = content.rangeOfString("p>\n") {
+//                let intIndex: Int = content.startIndex.distanceTo(range.endIndex)
+//                let startIndex2 = content.startIndex.advancedBy(intIndex - 1)
+//                
+//                let substring = content.substringWithRange(Range<String.Index>(start: startIndex2, end: content.endIndex))
+//                content = substring
+//            }
             
             content = content.stringByReplacingOccurrencesOfString("&nbsp;", withString: "", options: .RegularExpressionSearch, range: nil)
-
+            
             if(content.substringWithRange(Range<String.Index>(start: content.startIndex, end: content.startIndex.advancedBy(1))) == "\n") {
                 
                 content = content.substringWithRange(Range<String.Index>(start: content.startIndex.advancedBy(1), end: content.endIndex))
             }
+            
+            content = content.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
             
             let pd = ["title": name, "content": content, "id": id, "author": author, "catagories": catagories, "status": status, "imageLink": imageLink, "image": image, "date": date]
             
@@ -279,12 +264,9 @@ class SplashScreen: UIViewController {
         
         print(NSDate().timeIntervalSince1970 - lastLogIn)
         
-        if((NSDate().timeIntervalSince1970 - lastLogIn) > 5184000.0) {
-            performSegueWithIdentifier("logIn", sender: nil)
-            /* 
-            updateLogIn()
+        if((NSDate().timeIntervalSince1970 - lastLogIn) > (5184000.0 / 4)) {
+            updateLogIn(lastLogIn)
             performSegueWithIdentifier("doneLoading", sender: nil)
-            */
         } else {
             performSegueWithIdentifier("doneLoading", sender: nil)
         }
